@@ -1,0 +1,22 @@
+.map {
+  position: relative;
+  height: 70%;
+  width: 100%;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+
+.map.visible {
+  opacity: 1;
+}
+
+.bottom-panel {
+  width: 100%;
+}
+
+.floating-panel {
+  z-index: 5;
+  font-family: "Roboto", "sans-serif";
+  width: 100%;
+}

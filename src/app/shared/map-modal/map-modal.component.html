@@ -1,0 +1,37 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-title>Map</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="floating-panel">
+    <form [formGroup]="form">
+      <ion-grid ion-no-margin ion-no-padding>
+        <ion-row ion-no-padding ion-no-margin>
+          <ion-col size="5" size-sm offset-sm="1" ion-no-padding ion-no-margin>
+            <ion-label style="margin-top: 13px;">Mode of Travel: </ion-label>
+          </ion-col>
+          <ion-radio-group (ionChange)="radioGroupChange($event)" value="DRIVING">
+            <ion-col size="3" size-sm>
+              <ion-radio value="DRIVING"></ion-radio>
+              <ion-label style="padding-left: 4px;">Driving</ion-label>
+            </ion-col>
+            <ion-col size="3" size-sm>
+              <ion-radio value="WALKING"></ion-radio>
+              <ion-label style="padding-left: 4px;">Walking</ion-label>
+            </ion-col>
+          </ion-radio-group>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="map" #map></div>
+  <p>Total Distance: <span id="total" #total></span></p>
+  <div class="bottom-panel" #panel></div>
+</ion-content>

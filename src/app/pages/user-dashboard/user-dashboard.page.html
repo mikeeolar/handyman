@@ -1,0 +1,124 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button (click)="menuToogle()">
+          <ion-icon name="menu" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title style="font-size: 1em;">Current Location</ion-title>
+      <ion-title>{{ currentLocation }}</ion-title>
+      <div *ngIf="!currentLocation">
+        <ion-title>
+          <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+        </ion-title>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="9" offset-sm="1.5">
+          <ion-slides pager="true">
+            <ion-slide>
+              <ion-img src="assets/images/automobile_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/beauty_services.png"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/cleaning_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/electronics_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/carpenter_services.jpeg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/electrical_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/fumigation_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/plumbing_services.jpg"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img src="assets/images/events_services.jpg"></ion-img>
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-row>
+        <ion-searchbar></ion-searchbar>
+    </ion-row>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="3" offset-sm="1.5">
+          <ion-card button (click)="automobile()">
+            <ion-img src="assets/images/automobile.png"></ion-img>
+            <ion-text>Automobile</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="electrical()">
+            <ion-img src="assets/images/electrical.png"></ion-img>
+            <ion-text>Electrical</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="plumbing()">
+            <ion-img src="assets/images/plumbing.png"></ion-img>
+            <ion-text>Plumbing</ion-text>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col size-sm="3" offset-sm="1.5">
+          <ion-card button (click)="cleaning()">
+            <ion-img src="assets/images/cleaning.png"></ion-img>
+            <ion-text>Cleaning</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="electronics()">
+            <ion-img src="assets/images/electronics.png"></ion-img>
+            <ion-text>Electronics</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="carpentry()">
+            <ion-img src="assets/images/carpenter.png"></ion-img>
+            <ion-text>Carpentry</ion-text>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col size-sm="3" offset-sm="1.5">
+          <ion-card button (click)="beauty()">
+            <ion-img src="assets/images/beauty.png"></ion-img>
+            <ion-text>Beauty</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="events()">
+            <ion-img src="assets/images/events.png"></ion-img>
+            <ion-text>Events</ion-text>
+          </ion-card>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-card button (click)="fumigation()">
+            <ion-img src="assets/images/fumigation.png"></ion-img>
+            <ion-text>Fumigation</ion-text>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  

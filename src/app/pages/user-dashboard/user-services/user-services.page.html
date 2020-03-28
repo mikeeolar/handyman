@@ -1,0 +1,39 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <div class="ion-text-center" *ngIf="isLoading">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-grid *ngIf="!isLoading">
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <div class="ion-text-center" *ngIf="!services || services.length <= 0">
+          <p>Sorry! There are no services found for the specified category</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-item
+          lines="full"
+          *ngFor="let service of services"
+          detail
+          button
+          (click)="onUserServiceClick(service.id)"
+        >
+          <ion-label>{{ service.name }}</ion-label>
+        </ion-item>
+        <ion-item lines="full" detail button>
+          <ion-label>Others</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
