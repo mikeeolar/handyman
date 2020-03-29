@@ -60,7 +60,7 @@ export class UserDashboardPage implements OnInit, AfterViewInit {
     const location = new google.maps.LatLng(this.lat, this.lng);
     geocoder.geocode({location}, (results, status) => {
       if (status === google.maps.GeocoderStatus.OK) {
-        this.currentLocation = results[6].formatted_address;
+        this.currentLocation = results[5].formatted_address;
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }

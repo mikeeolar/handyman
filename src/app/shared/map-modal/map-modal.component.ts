@@ -156,7 +156,7 @@ export class MapModalComponent implements OnInit, AfterViewInit {
         const location = new google.maps.LatLng(lat, lng);
         geocoder.geocode({ location }, (results, status) => {
           if (status === google.maps.GeocoderStatus.OK) {
-            currentLocaion = results[6].formatted_address;
+            currentLocaion = results[5].formatted_address;
             directionsService.route(
               {
                 origin: results[0].geometry.location,
