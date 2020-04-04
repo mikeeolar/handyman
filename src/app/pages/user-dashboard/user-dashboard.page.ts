@@ -92,8 +92,8 @@ export class UserDashboardPage implements OnInit, AfterViewInit {
   }
 
   menuToogle() {
-    this.menuCtrl.enable(true, '1');
-    this.menuCtrl.toggle('1');
+    // this.menuCtrl.enable(true, '1');
+    // this.menuCtrl.toggle('1');
   }
 
   ionViewWillEnter() {
@@ -101,38 +101,38 @@ export class UserDashboardPage implements OnInit, AfterViewInit {
   }
 
   automobile() {
-    this.router.navigate(['/user-dashboard', 'user-services', 1]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 1]);
   }
 
   electrical() {
-    this.router.navigate(['/user-dashboard', 'user-services', 2]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 2]);
   }
 
   plumbing() {
-    this.router.navigate(['/user-dashboard', 'user-services', 3]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 3]);
   }
 
   cleaning() {
-    this.router.navigate(['/user-dashboard', 'user-services', 4]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 4]);
   }
 
   electronics() {
-    this.router.navigate(['/user-dashboard', 'user-services', 5]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 5]);
   }
 
   carpentry() {
-    this.router.navigate(['/user-dashboard', 'user-services', 6]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 6]);
   }
 
   beauty() {
-    this.router.navigate(['/user-dashboard', 'user-services', 7]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 7]);
   }
 
   events() {
-    this.router.navigate(['/user-dashboard', 'user-services', 8]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 8]);
   }
 
   fumigation() {
-    this.router.navigate(['/user-dashboard', 'user-services', 9]);
+    this.router.navigate(['/user-dashboard', 'provider-services', 9]);
   }
 }

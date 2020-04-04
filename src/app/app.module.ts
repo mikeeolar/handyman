@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,10 +16,12 @@ import { CreateBookingComponent } from './pages/booking/create-booking/create-bo
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { JobReviewComponent } from './pages/booking/job-review/job-review.component';
+import { EditBookingComponent } from './pages/booking/edit-booking/edit-booking.component';
 
 @NgModule({
-  declarations: [AppComponent, CreateBookingComponent],
-  entryComponents: [CreateBookingComponent],
+  declarations: [AppComponent, CreateBookingComponent, JobReviewComponent, EditBookingComponent],
+  entryComponents: [CreateBookingComponent, JobReviewComponent, EditBookingComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

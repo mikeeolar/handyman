@@ -1,0 +1,74 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Review now</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div style="text-align: center; margin-bottom: 40px">
+      <p style="font-weight: bold; font-size: 16px;">
+        We hope you were satisfied
+      </p>
+    </div>
+
+    <div style="text-align: center;">
+      <p style="font-weight: bold; font-size: 14px;">
+        Kindly rate and review your service provider
+      </p>
+    </div>
+
+    <div class="profile-box" style="margin-top: 20px;">
+      <ion-avatar>
+        <ion-img [src]="providerImage"></ion-img>
+      </ion-avatar>
+      <ion-label style="margin-left: 12px;" class="ion-text-wrap">
+        <h2 style="font-weight: bold;">
+          {{ providerName }}
+        </h2>
+        <h4>{{ providerCategory }}</h4>
+      </ion-label>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px">
+      <ion-icon
+        name="star"
+        style="margin: 5px; font-size: 24px; color: #ccc;"
+      ></ion-icon>
+      <ion-icon
+        name="star"
+        style="margin: 5px; font-size: 24px; color: #ccc;"
+      ></ion-icon>
+      <ion-icon
+        name="star"
+        style="margin: 5px; font-size: 24px; color: #ccc;"
+      ></ion-icon>
+      <ion-icon
+        name="star"
+        style="margin: 5px; font-size: 24px; color: #ccc;"
+      ></ion-icon>
+      <ion-icon
+        name="star"
+        style="margin: 5px; font-size: 24px; color: #ccc;"
+      ></ion-icon>
+    </div>
+
+    <div style="text-align: center; margin: 50px;">
+      <ion-label style="text-align: left; font-size: 16px;"
+        >Let us know your experience</ion-label
+      >
+      <ion-textarea
+        style="text-align: left; border: 1px solid green; border-radius: 12px;"
+      ></ion-textarea>
+    </div>
+  </ion-card>
+
+  <div style="text-align: center; margin: 30px;">
+    <ion-button>Submit Review</ion-button>
+  </div>
+</ion-content>

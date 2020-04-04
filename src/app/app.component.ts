@@ -58,4 +58,9 @@ export class AppComponent implements OnInit {
       this.email = email;
     });
   }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }

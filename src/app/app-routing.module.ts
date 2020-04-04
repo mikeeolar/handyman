@@ -14,7 +14,16 @@ const routes: Routes = [
   },
   {
     path: 'booking',
-    loadChildren: () => import('./pages/booking/booking.module').then( m => m.BookingPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/booking/booking.module').then( m => m.BookingPageModule)
+      },
+      {
+        path: 'job-details/:provider-id',
+        loadChildren: () => import('./pages/booking/job-booking-detail/job-booking-detail.module').then( m => m.JobBookingDetailPageModule)
+      }
+    ]
   },
   {
     path: 'user-dashboard',
@@ -26,22 +35,38 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'user-services/:category-id',
+        path: 'provider-services/:category-id',
         loadChildren:
-          './pages/user-dashboard/user-services/user-services.module#UserServicesPageModule'
+          './pages/user-dashboard/provider-services/provider-services.module#ProviderServicesPageModule'
       },
       {
-        path: 'user-list/:service-id',
+        path: 'provider-list/:service-id',
         loadChildren:
-          './pages/user-dashboard/user-list/user-list.module#UserListPageModule'
+          './pages/user-dashboard/provider-list/provider-list.module#ProviderListPageModule'
       },
       {
-        path: 'user-profile/:user-id/:service',
+        path: 'provider-profile/:user-id/:service',
         loadChildren:
-          './pages/user-dashboard/user-profile/user-profile.module#UserProfilePageModule'
+          './pages/user-dashboard/provider-profile/provider-profile.module#ProviderProfilePageModule'
       }
     ]
   },
+  {
+    path: 'notification',
+    loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'user-account',
+    loadChildren: () => import('./pages/user-account/user-account.module').then( m => m.UserAccountPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  }
 ];
 
 @NgModule({

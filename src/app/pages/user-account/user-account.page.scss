@@ -1,0 +1,26 @@
+/* Clear floats after the columns */
+.row:after {
+  display: table;
+  clear: both;
+}
+
+ion-avatar {
+  width: 85px;
+  height: 85px;
+}
+
+.col1 {
+  float: left;
+  width: auto;
+  margin-right: 20px;
+}
+.col2 {
+  float: right;
+  width: 60%;
+}
+
+.camera {
+  z-index: 1;
+  margin-top: -55px;
+  margin-left: 40px;
+}

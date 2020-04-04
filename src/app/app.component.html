@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" menuId="1" contentId="main">
+  <ion-menu side="start" contentId="main">
     <ion-header no-border>
       <ion-toolbar color="primary">
         <ion-item lines="none" color="primary">
@@ -25,52 +25,40 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" button routerLink="/bookings">
+          <ion-item lines="none" button routerLink="/booking">
             <ion-icon name="calendar" slot="start"></ion-icon>
             <ion-label>Bookings</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" button>
+          <ion-item lines="none" button routerLink="/notification">
             <ion-icon name="notifications" slot="start"></ion-icon>
             <ion-label>Notifications</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" button>
+          <ion-item lines="none" button routerLink="/user-account">
             <ion-icon name="person" slot="start"></ion-icon>
             <ion-label>Account</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-            <ion-item lines="none" button>
-              <ion-icon name="mail" slot="start"></ion-icon>
-              <ion-label>Contact us</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle>
-            <ion-item lines="none" button>
-              <ion-icon name="people" slot="start"></ion-icon>
-              <ion-label>About us</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle>
-              <ion-item lines="none" button>
-                <ion-icon name="lock-closed" slot="start"></ion-icon>
-                <ion-label>Privacy policy</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-            <ion-menu-toggle>
-              <ion-item lines="none" button>
-                <ion-icon name="list" slot="start"></ion-icon>
-                <ion-label>FAQs & Terms</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
+          <ion-item lines="none" button routerLink="/contact">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>Contact us</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" button routerLink="/about">
+            <ion-icon name="people" slot="start"></ion-icon>
+            <ion-label>About us</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
     <ion-footer>
       <ion-menu-toggle>
-        <ion-toolbar color="danger" button>
+        <ion-toolbar color="danger" button (click)="onLogout()">
           <ion-item lines="none" color="danger">
             <ion-icon name="log-out" slot="start"></ion-icon>
             <ion-label>Logout</ion-label>

@@ -66,7 +66,7 @@ export class AuthService {
 
   logout() {
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      Authorization: this.token.token_type + ' ' + this.token.access_token
     });
     return this.http.get(environment.serverAPI + 'auth/logout', { headers: headers })
     .pipe(

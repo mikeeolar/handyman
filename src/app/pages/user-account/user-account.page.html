@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Acount</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding ion-no-margin">
+  <ion-grid class="ion-no-padding ion-no-margin">
+    <ion-row class="ion-no-padding ion-no-margin">
+      <ion-col class="ion-no-padding ion-no-margin">
+        <ion-card
+          class="ion-no-padding ion-no-margin"
+          style="border-radius: 0%; margin-bottom: 2px; padding-right: 10px; padding-top: 20px; padding-left: 17px;"
+        >
+          <div class="row">
+            <div class="col1">
+              <ion-avatar style="margin-bottom: 20px;">
+                <ion-img src="assets/images/mike2.jpg"></ion-img>
+                <ion-button class="camera" fill="clear">
+                  <ion-icon name="camera" slot="icon-only" size="large"></ion-icon>
+                </ion-button>
+              </ion-avatar>
+            </div>
+            <div class="col2" style="float: left; margin-top: 20px;">
+              <ion-label class="ion-text-wrap">
+                <h2 style="font-weight: bold; font-size: 20px;">
+                  Ola Mike Michael
+                </h2>
+                <h4 style="font-size: 16px;">08149351037</h4>
+                <h4 style="font-size: 16px;">mike@gmail.com</h4>
+              </ion-label>
+            </div>
+          </div>
+        </ion-card>
+
+        <ion-card button
+          class="ion-no-padding ion-no-margin"
+          style="border-radius: 0%; margin-bottom: 2px; padding-right: 10px; padding-top: 10px; padding-left: 17px;"
+        >
+          <div class="row">
+            <div class="col1" style="margin-bottom: 5px;">
+              <ion-button fill="clear">
+                <ion-icon name="locate" slot="icon-only" size="large"></ion-icon>
+              </ion-button>
+            </div>
+            <div class="col2" style="float: left; margin-top: 10px;">
+              <ion-label class="ion-text-wrap">
+                <h2 style="font-weight: bold;">
+                  Manage Address
+                </h2>
+              </ion-label>
+            </div>
+          </div>
+        </ion-card>
+
+        <ion-card button routerLink="/contact"
+          class="ion-no-padding ion-no-margin"
+          style="border-radius: 0%; margin-bottom: 2px; padding-right: 10px; padding-top: 10px; padding-left: 17px;"
+        >
+          <div class="row">
+            <div class="col1" style="margin-bottom: 5px;">
+              <ion-button fill="clear">
+                <ion-icon name="mail" slot="icon-only" size="large"></ion-icon>
+              </ion-button>
+            </div>
+            <div class="col2" style="float: left; margin-top: 10px;">
+              <ion-label class="ion-text-wrap">
+                <h2 style="font-weight: bold;">
+                  Contact us
+                </h2>
+              </ion-label>
+            </div>
+          </div>
+        </ion-card>
+
+        <ion-card button routerLink="/about"
+          class="ion-no-padding ion-no-margin"
+          style="border-radius: 0%; margin-bottom: 2px; padding-right: 10px; padding-top: 10px; padding-left: 17px;"
+        >
+          <div class="row">
+            <div class="col1" style="margin-bottom: 5px;">
+              <ion-button fill="clear">
+                <ion-icon name="people" slot="icon-only" size="large"></ion-icon>
+              </ion-button>
+            </div>
+            <div class="col2" style="float: left; margin-top: 10px;">
+              <ion-label class="ion-text-wrap">
+                <h2 style="font-weight: bold;">
+                  About Us
+                </h2>
+              </ion-label>
+            </div>
+          </div>
+        </ion-card>
+
+        <ion-card disabled button
+          class="ion-no-padding ion-no-margin"
+          style="border-radius: 0%; margin-bottom: 2px; padding-right: 10px; padding-top: 10px; padding-left: 17px;"
+        >
+          <div class="row">
+            <div class="col1" style="margin-bottom: 5px;">
+              <ion-button fill="clear">
+                <ion-icon name="list" slot="icon-only" size="large"></ion-icon>
+              </ion-button>
+            </div>
+            <div class="col2" style="float: left; margin-top: 10px;">
+              <ion-label class="ion-text-wrap">
+                <h2 style="font-weight: bold;">
+                  FAQs
+                </h2>
+              </ion-label>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-button expand="full">
+    <ion-icon slot="start" name="log-out"></ion-icon>
+    Sign out
+  </ion-button>
+</ion-footer>

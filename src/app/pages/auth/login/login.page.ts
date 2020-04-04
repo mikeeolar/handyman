@@ -63,7 +63,25 @@ export class LoginPage implements OnInit {
               },
               error => {
                 loadingEl.dismiss();
-                console.log(error);
+                const errMsg = error.error.message;
+                if (errMsg === 'Unauthorized') {
+                  this.alertCtrl
+                  .create({
+                    header: 'Error',
+                    message: 'Invalid Email or Password',
+                    buttons: [
+                      {
+                        text: 'Ok'
+                      }
+                    ]
+                  })
+                  .then(alertEl => {
+                    loadingEl.dismiss();
+                    alertEl.present();
+                  });
+                } else {
+                  console.log(error);
+                }
               }
             );
         }

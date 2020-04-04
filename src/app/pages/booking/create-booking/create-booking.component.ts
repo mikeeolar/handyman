@@ -1,26 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { ModalController, AlertController } from "@ionic/angular";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
-import { AuthService } from '../../../services/auth.service';
-import { BookingService } from '../../../services/booking.service';
+import { AuthService } from "../../../services/auth.service";
+import { BookingService } from "../../../services/booking.service";
 
 @Component({
-  selector: 'app-create-booking',
-  templateUrl: './create-booking.component.html',
-  styleUrls: ['./create-booking.component.scss'],
+  selector: "app-create-booking",
+  templateUrl: "./create-booking.component.html",
+  styleUrls: ["./create-booking.component.scss"]
 })
 export class CreateBookingComponent implements OnInit {
-
   currentDate: Date;
   form: FormGroup;
 
-  @Input() specialistId;
-  @Input() specialistName;
-  @Input() specialistImage;
-  @Input() specialistCategory;
-  @Input() specialistService;
+  @Input() providerId;
+  @Input() providerName;
+  @Input() providerImage;
+  @Input() providerCategory;
+  @Input() providerService;
 
   constructor(
     private modalCtrl: ModalController,
@@ -28,46 +27,47 @@ export class CreateBookingComponent implements OnInit {
     private alertCtrl: AlertController,
     private router: Router,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.currentDate = new Date();
     this.form = new FormGroup({
       date: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       }),
       timeFrom: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       }),
       timeTo: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       }),
       location: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       }),
       address: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       }),
       addInfo: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: "blur",
         validators: [Validators.required]
       })
     });
+    console.log(this.providerId);
   }
 
   timesValid() {
-    const startTime = new Date(this.form.value.timeFrom);
-    const endTime = new Date(this.form.value.timeTo);
+    const startTime = new Date(this.form.value['timeFrom']);
+    const endTime = new Date(this.form.value['timeTo']);
     return endTime > startTime;
   }
 
   dateValid() {
-    const date = new Date(this.form.value.date).toLocaleDateString();
+    const date = new Date(this.form.value['date']).toLocaleDateString();
     const today = new Date().toLocaleDateString();
     return date >= today;
   }
@@ -87,9 +87,9 @@ export class CreateBookingComponent implements OnInit {
     this.bookingService
       .addBooking(
         +fetchedUserId,
-        this.specialistId,
-        this.specialistCategory,
-        this.specialistService,
+        this.providerId,
+        this.providerCategory,
+        this.providerService,
         this.form.value.date,
         this.form.value.timeFrom,
         this.form.value.timeTo,
@@ -101,20 +101,20 @@ export class CreateBookingComponent implements OnInit {
         this.form.reset();
         this.alertCtrl
           .create({
-            header: 'Booking Succesfull',
+            header: "Booking Succesfull",
             message:
-// tslint:disable-next-line: max-line-length
-              'Your specialist has recieved the request and will get back to you shortly. You can check the status of your request on the Bookings menu item.',
+              // tslint:disable-next-line: max-line-length
+              "Your Provider has recieved the request and will get back to you shortly. You can check the status of your request on the Bookings menu item.",
             buttons: [
               {
-                text: 'Cancel',
-                role: 'cancel'
+                text: "Cancel",
+                role: "cancel"
               },
               {
-                text: 'View Bookings',
+                text: "View Bookings",
                 handler: () => {
                   this.onCancel();
-                  this.router.navigate(['/bookings']);
+                  this.router.navigate(["/booking"]);
                 }
               }
             ]

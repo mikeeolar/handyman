@@ -22,20 +22,20 @@ export class HandyService {
 
   getUserWithServices(serviceId: number) {
     return this.http
-      .get<Handy>(environment.serverAPI + 'user-services/' + serviceId)
+      .get<Handy>(environment.serverAPI + 'provider-services/' + serviceId)
       .pipe(
         map(resData => {
-          return resData.UserServices;
+          return resData.ProviderServices;
         })
       );
   }
 
   getUserProfile(userId: number) {
     return this.http
-      .get<Handy>(environment.serverAPI + 'user-profile/' + userId)
+      .get<Handy>(environment.serverAPI + 'provider-profile/' + userId)
       .pipe(
         map(resData => {
-          return resData.UserProfile;
+          return resData.ProviderProfile;
         })
       );
   }

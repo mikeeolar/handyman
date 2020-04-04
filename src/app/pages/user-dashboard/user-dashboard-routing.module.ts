@@ -9,16 +9,16 @@ const routes: Routes = [
     component: UserDashboardPage
   },
   {
-    path: 'user-list',
-    loadChildren: () => import('./user-list/user-list.module').then( m => m.UserListPageModule)
+    path: 'provider-profile',
+    loadChildren: () => import('./provider-profile/provider-profile.module').then( m => m.ProviderProfilePageModule)
   },
   {
-    path: 'user-profile',
-    loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+    path: 'provider-list',
+    loadChildren: () => import('./provider-list/provider-list.module').then( m => m.ProviderListPageModule)
   },
   {
-    path: 'user-services',
-    loadChildren: () => import('./user-services/user-services.module').then( m => m.UserServicesPageModule)
+    path: 'provider-services',
+    loadChildren: () => import('./provider-services/provider-services.module').then( m => m.ProviderServicesPageModule)
   }
 ];
 

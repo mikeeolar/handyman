@@ -1,0 +1,66 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <p style="color: white;">Call us to speak with us</p>
+    <ion-button
+      color="light"
+      style="width: 200px; border-radius: 20%; color: green;"
+    >
+      <ion-icon color="primary" name="call" slot="start"></ion-icon>
+      Call us
+    </ion-button>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div style="text-align: center;">
+    <p style="color: green;">Or write us your issue</p>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating" style="margin: 12px;" color="primary">Your Name</ion-label>
+          <ion-input type="text">
+            <ion-icon name="person" slot="start" color="primary"></ion-icon>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating" style="margin: 12px;" color="primary">Mobile Number</ion-label>
+          <ion-input type="phone" style="padding-left: 15px;">
+            <ion-icon name="phone-portrait" slot="start" color="primary"></ion-icon>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3" >
+        <ion-item>
+          <ion-label position="floating" style="margin: 14px;" color="primary">Your Message</ion-label>
+          <ion-textarea>
+            <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+          </ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <div style="text-align: center;">
+          <ion-button>
+            Submit
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

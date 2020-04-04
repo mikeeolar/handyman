@@ -11,13 +11,15 @@ export interface Service {
 
 export interface Handy {
   users: Users;
+  providers: Providers
   categories: Categories;
   services: Services;
-  UserServices: any;
-  UserProfile: any;
+  ProviderServices: any;
+  ProviderProfile: any;
+  ProviderBookings: any;
   id: number;
   user_id: number;
-  category_id: number;
+  provider_id: number;
   professional_summary: string;
   experience: string;
   certificate: string;
@@ -25,7 +27,16 @@ export interface Handy {
   job_address: string;
   created_at: string;
   updated_at: string;
-  user_services: UserServices;
+  provider_services: ProviderServices;
+  category: string;
+  service: string;
+  book_date: string;
+  time_from: string;
+  time_to: string;
+  location: string;
+  address: string;
+  additional_info: string;
+  status: string;
 }
 
 export interface Services {
@@ -60,13 +71,31 @@ export interface Users {
   verified: number;
   created_at: string;
   updated_at: string;
-  user_services: UserServices[];
 }
 
-export interface UserProfile {
+export interface Providers {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  email_verified_at?: any;
+  password: string;
+  gender: string;
+  phone_number: string;
+  location: string;
+  address: string;
+  image: string;
+  verified: number;
+  remember_token?: any;
+  created_at: string;
+  updated_at: string;
+  provider_services: ProviderServices[];
+}
+
+export interface ProviderProfile {
   id: number;
   user_id: number;
-  category_id: number;
+  provider_id: number;
   professional_summary: string;
   experience: string;
   certificate: string;
@@ -76,7 +105,7 @@ export interface UserProfile {
   updated_at: string;
 }
 
-export interface UserServices {
+export interface ProviderServices {
   id: number;
   user_id: number;
   category_id: number;
@@ -86,3 +115,22 @@ export interface UserServices {
   categories: Categories;
   services: Services;
 }
+
+export interface ProviderBookings {
+  id: number;
+  user_id: number;
+  provider_id: number;
+  category: string;
+  service: string;
+  book_date: string;
+  time_from: string;
+  time_to: string;
+  location: string;
+  address: string;
+  additional_info: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+  users: Users;
+}
+

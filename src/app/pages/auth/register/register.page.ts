@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
