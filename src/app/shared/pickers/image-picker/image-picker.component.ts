@@ -50,7 +50,7 @@ export class ImagePickerComponent implements OnInit {
       buttons: [
         {
           text: 'Gallery',
-          icon: 'film',
+          icon: 'images',
           handler: () => {
             this.camera.getPicture(galleryOptions).then(imageData => {
               this.profileImage = 'data:image/jpeg;base64,' + imageData;
