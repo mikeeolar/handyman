@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
         loadingEl.present();
         if (this.isLogin) {
           this.authService
-            .login(form.value.email, form.value.password)
+            .login(form.value.email, form.value.password, 'user-app')
             .subscribe(
               data => {
                 this.alertCtrl

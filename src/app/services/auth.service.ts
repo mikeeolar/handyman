@@ -19,8 +19,8 @@ export class AuthService {
     private storage: NativeStorage
   ) {}
 
-  login(email: string, password: string) {
-    return this.http.post(environment.serverAPI + 'auth/login', { email, password }
+  login(email: string, password: string, role: string) {
+    return this.http.post(environment.serverAPI + 'auth/login', { email, password, role }
     ).pipe(
       tap(token => {
         this.storage.setItem('token', token)
