@@ -9,9 +9,8 @@ export class Booking {
         // tslint:disable-next-line: variable-name
         public book_date: Date,
         // tslint:disable-next-line: variable-name
-        public time_from: Date,
+        public time: Date,
         // tslint:disable-next-line: variable-name
-        public time_to: Date,
         public location: string,
         public address: string,
         // tslint:disable-next-line: variable-name

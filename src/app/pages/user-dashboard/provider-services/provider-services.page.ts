@@ -35,7 +35,7 @@ export class ProviderServicesPage implements OnInit {
 
       this.handyService.getCategoryServices(+paraMap.get('category-id')).subscribe(resData => {
         this.services = resData;
-        this.title = resData[0].category.name;
+        this.title = resData[0].categories.name;
         this.isLoading = false;
       });
     });

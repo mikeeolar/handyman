@@ -60,9 +60,9 @@ export class EditBookingComponent implements OnInit {
   }
 
   timesValid() {
-    const startTime = new Date(this.form.get('timeFrom').value);
-    const endTime = new Date(this.form.get('timeTo').value);
-    return endTime > startTime;
+    const currentTime = new Date();
+    const startTime = new Date(this.form.value['time']);
+    return startTime > currentTime;
   }
 
   dateValid() {
@@ -90,8 +90,7 @@ export class EditBookingComponent implements OnInit {
         this.providerCategory,
         this.providerService,
         this.form.value.date,
-        this.form.value.timeFrom,
-        this.form.value.timeTo,
+        this.form.value.time,
         this.form.value.location,
         this.form.value.address,
         this.form.value.addInfo

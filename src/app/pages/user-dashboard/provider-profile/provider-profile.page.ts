@@ -57,6 +57,10 @@ export class ProviderProfilePage implements OnInit {
     });
   }
 
+  bookNow(providerId: number) {
+    this.router.navigate(['/booking', 'booking-details', providerId, this.providerService]);
+  }
+
   onBookingModal() {
     this.modalCtrl.create({
       component: CreateBookingComponent,

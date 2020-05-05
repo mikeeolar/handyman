@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: 'job-details/:provider-id',
         loadChildren: () => import('./pages/booking/job-booking-detail/job-booking-detail.module').then( m => m.JobBookingDetailPageModule)
+      },
+      {
+        path: 'booking-details/:provider-id/:service',
+        loadChildren: () => import('./pages/booking/booking-details/booking-details.module').then ( m => m.BookingDetailsPageModule)
       }
     ]
   },

@@ -153,6 +153,30 @@ export class AuthService {
     );
   }
 
+  get userAddress() {
+    return this.users.asObservable().pipe(
+      map(user => {
+        if (user) {
+          return user.address;
+        } else {
+          return null;
+        }
+      })
+    );
+  }
+
+  get userLocation() {
+    return this.users.asObservable().pipe(
+      map(user => {
+        if (user) {
+          return user.location;
+        } else {
+          return null;
+        }
+      })
+    );
+  }
+
   get email() {
     return this.users.asObservable().pipe(
       map(user => {

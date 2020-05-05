@@ -30,9 +30,9 @@ export class HandyService {
       );
   }
 
-  getUserProfile(userId: number) {
+  getUserProfile(providerId: number) {
     return this.http
-      .get<Handy>(environment.serverAPI + 'provider-profile/' + userId)
+      .get<Handy>(environment.serverAPI + 'provider-profile/' + providerId)
       .pipe(
         map(resData => {
           return resData.ProviderProfile;

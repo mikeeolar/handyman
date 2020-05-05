@@ -18,6 +18,8 @@ import { SharedModule } from './shared/shared.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { JobReviewComponent } from './pages/booking/job-review/job-review.component';
 import { EditBookingComponent } from './pages/booking/edit-booking/edit-booking.component';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import * as moment from "moment";
 
 @NgModule({
   declarations: [AppComponent, CreateBookingComponent, JobReviewComponent, EditBookingComponent],
@@ -35,6 +37,7 @@ import { EditBookingComponent } from './pages/booking/edit-booking/edit-booking.
     StatusBar,
     SplashScreen,
     Geolocation,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage
   ],

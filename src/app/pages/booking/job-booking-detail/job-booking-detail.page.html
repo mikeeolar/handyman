@@ -4,8 +4,8 @@
       <ion-back-button [defaultHref]="'/booking'"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end" style="margin-right: 10px;">
-      <ion-button>
-        <ion-icon size="large" name="refresh" (click)="refresh()"></ion-icon>
+      <ion-button (click)="refresh()">
+        <ion-icon name="sync"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>Job Detail</ion-title>
@@ -13,15 +13,16 @@
 </ion-header>
 
 <ion-content *ngFor="let job of jobDetails">
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button size="small">
-      <ion-icon name="call" size="small"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button size="small">
-      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
+  <div *ngIf="job.status == 'Accepted'">
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button size="small">
+        <ion-icon name="call" size="small"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small">
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
   <ion-grid>
     <ion-row>
       <ion-col size-sm="6" offset-sm="3">
@@ -63,8 +64,7 @@
                       Booking Date & Time
                     </h3>
                     <h4>
-                      {{ job.book_date }}, {{ job.time_from }} - {{ job.time_to
-                      }}
+                      {{ job.book_date }}, {{ job.time }}
                     </h4>
                   </ion-label>
                 </ion-col>
@@ -93,63 +93,37 @@
         expand="full"
         style="font-size: 11px;"
         (click)="onBookingCancel(job.provider_id)"
+        [disabled]="isComplete"
       >
         <ion-icon name="close" color="primary" slot="start"></ion-icon>
         Cancel
       </ion-button>
     </div>
     <div class="but2">
-      <ion-button fill="none" expand="full" style="font-size: 11px;" (click)="onEditBookingModal()">
+      <ion-button
+        fill="none"
+        expand="full"
+        style="font-size: 11px;"
+        (click)="onEditBookingModal()"
+      >
         <ion-icon name="reload" color="primary" slot="start"></ion-icon>
         Reschedule
       </ion-button>
     </div>
     <div class="but3">
-      <ion-button fill="none" expand="full" style="font-size: 11px;" (click)="viewProfile(job.provider_id, job.service)">
+      <ion-button
+        fill="none"
+        expand="full"
+        style="font-size: 11px;"
+        (click)="viewProfile(job.provider_id, job.service)"
+      >
         <ion-icon name="person" color="primary" slot="start"></ion-icon>
         View Profile
       </ion-button>
     </div>
   </div>
 
-  <ion-label style="font-weight: bold; margin: 10px">Job Status</ion-label>
-
-  <div *ngIf="job.status == 'Accepted'">
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title
-          style="font-weight: bold;"
-          *ngIf="job.status == 'Accepted'"
-          >Booking {{ job.status }}</ion-card-title
-        >
-        <ion-card-subtitle
-          >Booking accepted on {{ job.created_at }}</ion-card-subtitle
-        >
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <div
-    *ngIf="job.status == 'Started' || job.status == 'Completed'"
-    style="margin: 35px 20px 30px 20px;"
-  >
-    <ion-card-title disabled style="color: #000; font-weight: bold;"
-      >Booking Accepted</ion-card-title
-    >
-    <ion-card-subtitle
-      >Booking Accepted on {{ job.created_at }}</ion-card-subtitle
-    >
-  </div>
-
-  <div
-    *ngIf="job.status == 'Started' || job.status == 'Completed'"
-    style="margin: 35px 20px 30px 20px;"
-  >
-    <ion-card-title disabled style="color: #000; font-weight: bold;"
-      >Job In Process</ion-card-title
-    >
-    <ion-card-subtitle>Job started on {{ job.created_at }}</ion-card-subtitle>
-  </div>
+  <ion-label style="font-weight: bold; margin: 10px;">Job Status</ion-label>
 
   <div *ngIf="job.status == 'Pending'">
     <ion-card>
@@ -160,46 +134,127 @@
           >Booking {{ job.status }}</ion-card-title
         >
         <ion-card-subtitle
-          >Booking request sent on {{ job.created_at }}</ion-card-subtitle
+          >Booking request sent on {{ pendingTime }}</ion-card-subtitle
         >
       </ion-card-content>
     </ion-card>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #ccc; font-weight: bold;"
+        >Job In Process</ion-card-title
+      >
+    </div>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #ccc; font-weight: bold;"
+        >Job Completed</ion-card-title
+      >
+    </div>
+  </div>
+
+  <div *ngIf="job.status == 'Accepted'">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title
+          style="font-weight: bold;"
+          *ngIf="job.status == 'Accepted'"
+          >Booking {{ job.status }}</ion-card-title
+        >
+        <ion-card-subtitle
+          >Booking accepted on {{ acceptjobTime }}</ion-card-subtitle
+        >
+      </ion-card-content>
+    </ion-card>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #ccc; font-weight: bold;"
+        >Job In Process</ion-card-title
+      >
+    </div>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #ccc; font-weight: bold;"
+        >Job Completed</ion-card-title
+      >
+    </div>
+  </div>
+
+  <div *ngIf="job.status == 'Started'">
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #000; font-weight: bold;"
+        >Booking Accepted</ion-card-title
+      >
+      <ion-card-subtitle
+        >Booking Accepted on {{ acceptjobTime }}</ion-card-subtitle
+      >
+    </div>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title style="font-weight: bold;"
+          >Job In Process</ion-card-title
+        >
+        <ion-card-subtitle>Job started at {{ startJobTime }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #ccc; font-weight: bold;"
+        >Job Completed</ion-card-title
+      >
+    </div>
   </div>
 
   <div *ngIf="job.status == 'Completed'">
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #000; font-weight: bold;"
+        >Booking Accepted</ion-card-title
+      >
+      <ion-card-subtitle
+        >Booking Accepted on {{ acceptjobTime }}</ion-card-subtitle
+      >
+    </div>
+    <div style="margin: 35px 20px 30px 20px;">
+      <ion-card-title disabled style="color: #000; font-weight: bold;"
+        >Job Started</ion-card-title
+      >
+      <ion-card-subtitle
+        >Job Started at {{ startJobTime }}</ion-card-subtitle
+      >
+    </div>
     <ion-card style="background-color: greenyellow;">
       <ion-card-content>
         <ion-card-title style="font-weight: bold;"
           >Job Completed</ion-card-title
         >
         <ion-card-subtitle
-          >Booking completed on {{ job.created_at }}</ion-card-subtitle
+          >Booking completed on {{ completeJobTime }}</ion-card-subtitle
         >
       </ion-card-content>
     </ion-card>
   </div>
 
-  <div
-    *ngIf="job.status == 'Pending' || job.status == 'Accepted'"
-    style="margin: 35px 20px 30px 20px;"
-  >
-    <ion-card-title disabled style="color: #ccc; font-weight: bold;"
-      >Job In Process</ion-card-title
-    >
+  <!-- <div *ngIf="job.status == 'Completed'">
+    <ion-card style="background-color: greenyellow;">
+      <ion-card-content>
+        <ion-card-title style="font-weight: bold;"
+          >Job Completed</ion-card-title
+        >
+        <ion-card-subtitle
+          >Booking completed on {{ completeJobTime }}</ion-card-subtitle
+        >
+      </ion-card-content>
+    </ion-card>
   </div>
 
-  <div
-    *ngIf="job.status == 'Pending' || job.status == 'Accepted'"
-    style="margin: 35px 20px 30px 20px;"
-  >
-    <ion-card-title disabled style="color: #ccc; font-weight: bold;"
-      >Job Completed</ion-card-title
-    >
-  </div>
+  <div *ngIf="job.status == 'Started'">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title style="font-weight: bold;"
+          >Job In Process</ion-card-title
+        >
+        <ion-card-subtitle>Job started on {{ startJobTime }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </div> -->
 
   <div
     *ngIf="job.status == 'Completed'"
-    style="text-align: center; margin: 10px"
+    style="text-align: center; margin: 10px;"
   >
     <ion-button (click)="onReviewModal()">Review Now</ion-button>
   </div>

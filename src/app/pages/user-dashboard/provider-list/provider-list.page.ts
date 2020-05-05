@@ -47,7 +47,7 @@ export class ProviderListPage implements OnInit {
     });
   }
 
-  providerProfilePage(userId) {
+  providerProfilePage(userId: number) {
     this.router.navigate(['/user-dashboard', 'provider-profile', userId, this.title]);
   }
 }

@@ -20,9 +20,8 @@ export class BookingService {
     providerId: number,
     category: string,
     service: string,
-    bookDate: Date,
-    timeFrom: Date,
-    timeTo: Date,
+    bookDate: string,
+    time: string,
     location: string,
     address: string,
     addInfo: string
@@ -35,8 +34,7 @@ export class BookingService {
         category,
         service,
         bookDate,
-        timeFrom,
-        timeTo,
+        time,
         location,
         address,
         addInfo
@@ -54,12 +52,92 @@ export class BookingService {
       );
   }
 
+  getUpcomingJobs(userId: number): Observable<any> {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'upcoming-jobs/' + userId)
+      .pipe(
+        map(resData => {
+          return resData.UpcomingJobs;
+        })
+      );
+  }
+
+  getPastJobs(userId: number): Observable<any> {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'past-jobs/' + userId)
+      .pipe(
+        map(resData => {
+          return resData.PastJobs;
+        })
+      );
+  }
+
   getJobDetails(providerId: number): Observable<any> {
     return this.http
       .get<Handy>(environment.serverAPI + 'job-details/' + providerId)
       .pipe(
         map(resData => {
           return resData.ProviderBookings;
+        })
+      );
+  }
+
+  getJobs(providerId: number): Observable<any> {
+    return this.http
+      .get<Handy>(environment.serverAPI + "all-jobs/" + providerId)
+      .pipe(
+        map((resData) => {
+          return resData.Jobs;
+        })
+      );
+  }
+
+  getAllJobs(providerId: number) {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'get-jobs/' + providerId)
+      .pipe(
+        map(resData => {
+          return resData.Jobs;
+        })
+      );
+  }
+
+  // upcomingJobs(userId: number) {
+  //   return this.http
+  //     .get<Handy>(environment.serverAPI + 'upcoming-jobs/' + userId)
+  //     .pipe(
+  //       map(resData => {
+  //         return resData;
+  //       })
+  //     );
+  // }
+
+  pendingJobs(userId: number) {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'upcoming-jobs/' + userId)
+      .pipe(
+        map(resData => {
+          return resData.PendingJobs;
+        })
+      );
+  }
+
+  acceptedJobs(userId: number) {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'upcoming-jobs/' + userId)
+      .pipe(
+        map(resData => {
+          return resData.AcceptedJobs;
+        })
+      );
+  }
+
+  startedJobs(userId: number) {
+    return this.http
+      .get<Handy>(environment.serverAPI + 'upcoming-jobs/' + userId)
+      .pipe(
+        map(resData => {
+          return resData.StartedJobs;
         })
       );
   }

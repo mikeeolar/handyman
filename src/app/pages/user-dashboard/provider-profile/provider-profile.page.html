@@ -1,7 +1,7 @@
 <ion-header no-border>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button [defaultHref]="'/user-dashboard'"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title></ion-title>
   </ion-toolbar>
@@ -22,13 +22,13 @@
     </p>
   </div>
   <div class="profile-buttons" style="border: none">
-    <ion-button expand="full" color="primary" (click)="onBookingModal()">
+    <ion-button expand="full" color="primary" (click)="bookNow(profile.providers.id)">
       <ion-icon name="checkmark-circle" slot="start"></ion-icon>
       Book Now
     </ion-button>
-    <ion-button expand="full" color="primary" (click)="openMap()">
-      <ion-icon name="locate" slot="start"></ion-icon>
-      Location
+    <ion-button expand="full" color="primary" (click)="onBookingModal()">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      Book Later
     </ion-button>
   </div>
 </div>

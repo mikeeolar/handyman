@@ -36,11 +36,7 @@ export class CreateBookingComponent implements OnInit {
         updateOn: "blur",
         validators: [Validators.required]
       }),
-      timeFrom: new FormControl(null, {
-        updateOn: "blur",
-        validators: [Validators.required]
-      }),
-      timeTo: new FormControl(null, {
+      time: new FormControl(null, {
         updateOn: "blur",
         validators: [Validators.required]
       }),
@@ -61,9 +57,9 @@ export class CreateBookingComponent implements OnInit {
   }
 
   timesValid() {
-    const startTime = new Date(this.form.value['timeFrom']);
-    const endTime = new Date(this.form.value['timeTo']);
-    return endTime > startTime;
+    const currentTime = new Date();
+    const startTime = new Date(this.form.value['time']);
+    return startTime > currentTime;
   }
 
   dateValid() {
@@ -91,8 +87,7 @@ export class CreateBookingComponent implements OnInit {
         this.providerCategory,
         this.providerService,
         this.form.value.date,
-        this.form.value.timeFrom,
-        this.form.value.timeTo,
+        this.form.value.time,
         this.form.value.location,
         this.form.value.address,
         this.form.value.addInfo
