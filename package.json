@@ -40,7 +40,7 @@
     "cordova-sms-plugin": "^1.0.0",
     "core-js": "^2.5.4",
     "google-maps": "^4.2.3",
-    "moment": "^2.25.1",
+    "moment": "^2.29.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
